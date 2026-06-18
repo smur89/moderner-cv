@@ -1,0 +1,121 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "url": "https://example.me",
+    "location": {
+      "address": "Test Street 1",
+      "postalCode": "12345",
+      "city": "Example City"
+    },
+    "profiles": [
+      { "network": "GitHub",   "username": "jane-doe", "url": "https://github.com/jane-doe" },
+      { "network": "LinkedIn", "username": "jane-doe", "url": "https://linkedin.com/in/jane-doe" }
+    ]
+  },
+  "work": [
+    {
+      "name": "Cobra Collective",
+      "position": "Founder and Lead Developer",
+      "startDate": "2024-06",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      "highlights": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+        "Lorem ipsum dolor sit."
+      ]
+    },
+    {
+      "name": "The Snake Company",
+      "position": "Snake Specialist",
+      "startDate": "2022-04",
+      "endDate": "2023-07",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+    },
+    {
+      "name": "Viper Ventures",
+      "position": "Working Student",
+      "startDate": "2022-04",
+      "endDate": "2023-07",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Herpetology Outreach",
+      "position": "Workshop Lead",
+      "startDate": "2021-06",
+      "endDate": "2022-04",
+      "summary": "Ran weekend snake-identification workshops for local schools."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Cobra Creek College",
+      "studyType": "M.Sc.",
+      "area": "Ophiology",
+      "startDate": "2021",
+      "endDate": "2024",
+      "score": "3.9/4.0"
+    },
+    {
+      "institution": "Serpentis University",
+      "studyType": "B.Sc.",
+      "area": "Herpetology",
+      "startDate": "2018",
+      "endDate": "2021",
+      "score": "4.0/4.0"
+    }
+  ],
+  "skills": [
+    { "name": "Languages",    "keywords": ["Python"] },
+    { "name": "Technologies", "keywords": ["Conda", "Boa", "Rattler-build"] }
+  ],
+  "languages": [
+    { "language": "English", "fluency": "Native" },
+    { "language": "French",  "fluency": "Fluent" },
+    { "language": "Dutch",   "fluency": "Advanced" }
+  ],
+  "interests": [
+    { "name": "Snake Spotting" },
+    { "name": "Collecting Venom" }
+  ],
+  "awards": [
+    {
+      "title": "Best New Researcher",
+      "date": "2023-11",
+      "awarder": "Herpetology Society",
+      "summary": "For contributions to field research."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Reptile Handling License",
+      "date": "2022-05",
+      "issuer": "International Herpetological Association"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Venom-tracking platform design",
+      "publisher": "Cobra Collective Tech Notes",
+      "releaseDate": "2024-09",
+      "summary": "A field-portable architecture for tracking venom samples in real time."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Venom Atlas",
+      "description": "Open dataset of venom compositions.",
+      "startDate": "2023-01",
+      "endDate": "2024-03",
+      "highlights": ["Released v1 with 200 species"]
+    }
+  ],
+  "references": [
+    {
+      "name": "Dr. Salazar",
+      "reference": "Excellent field judgement and willingness to handle live cobras."
+    }
+  ]
+}

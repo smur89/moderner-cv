@@ -300,3 +300,58 @@
     [], list(item1), list(item2),
   )
 }
+
+#import "internal/json-resume.typ": from-json-resume as _from-json-resume
+
+// Returns `(header, body)`. Split so advanced callers can override a
+// single header kwarg or stitch in custom sections without re-implementing
+// the body emitter.
+#let from-json-resume(data) = _from-json-resume(
+  data,
+  renderers: (
+    cv-entry: cv-entry,
+    cv-entry-multiline: cv-entry-multiline,
+    cv-line: cv-line,
+  ),
+)
+
+// One-call form. Named args override header kwargs derived from `basics`;
+// extra positionals are rejected to catch drift from the kwarg form.
+#let moderner-cv-from-json(data, ..rest) = {
+  if rest.pos().len() > 0 {
+    panic(
+      "moderner-cv-from-json takes one positional (`data`); pass header overrides as named arguments. Got extra positionals: "
+        + repr(rest.pos()),
+    )
+  }
+  let named = rest.named()
+  // The wrapper owns `body` (it composes header + body itself); a
+  // caller-supplied `body:` would collide with the trailing positional
+  // and panic with a confusing duplicate-argument error.
+  if "body" in named {
+    panic(
+      "moderner-cv-from-json controls the body. To inject custom markup, call `from-json-resume(data)` and compose `moderner-cv(...)` yourself.",
+    )
+  }
+  let parts = from-json-resume(data)
+  // Merge `social:` key-by-key (rather than whole-dict replace) so a
+  // partial override doesn't silently drop the email / github / etc.
+  // fields derived from `basics`. `social` is the only dict-typed kwarg
+  // on moderner-cv today; other kwargs whole-replace as expected.
+  let header = parts.header
+  for (k, v) in named {
+    if k == "social" {
+      if type(v) != dictionary {
+        panic(
+          "moderner-cv-from-json: `social:` override must be a dictionary; got "
+            + repr(type(v))
+            + ". Pass `social: (github: \"…\", linkedin: \"…\")` etc.",
+        )
+      }
+      header.insert("social", (..header.at("social", default: (:)), ..v))
+    } else {
+      header.insert(k, v)
+    }
+  }
+  moderner-cv(..header, parts.body)
+}
